@@ -1,0 +1,82 @@
+  <!doctype html>
+  <html>
+      <head>
+          <meta charset="utf-8">
+          <title>IEEE802.11n</title>
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="img/icon.png" />
+      <style type="text/css">
+      <!--
+  p.MsoNormal {
+      margin-top: 0cm;
+      margin-right: 0cm;
+      margin-bottom: 8.0pt;
+      margin-left: 0cm;
+      line-height: 107%;
+      font-size: 16pt;
+      font-family: "Calibri","sans-serif";
+  }
+  -->
+      </style>
+  </head>
+  
+      <body>
+          <div id="wrapper">
+              <header id="header">
+                  <h1>IEEE 802.11n</h1>
+                  <nav>
+                      <ul>
+                          <li><a href="index.html">Introduction</a></li>
+                          <li>
+                              <a href="Physical Layer Improvements.html">Physical Layer Improvements</a>
+                              <ul class="sub_ul">
+                                <li class="sub_li"><a href="Physical Layer Improvements.html#MIMO">Multiple-Input, Multiple-Output (MIMO)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Beamforming">Beamforming</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#MRC">Maximal-Ratio Combining (MRC)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#SM">Spatial Multiplexing (SM)</a></li>
+								<li class="sub_li"><a href="Physical Layer Improvements.html#Radio_Enh">Radio Enhancements</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Channel_bond">Channel Bonding</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#HT_OFDM">HT-OFDM</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#GI">Shorter Guard Interval (GI)</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Mac Layer Improvements.html">MAC Layer Improvements</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Mac Layer Improvements.html#frame_agg">Frame Aggregation</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MSDU">A-MSDU</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MPDU">A-MPDU</a></li>
+                                <li class="sub_li"><a href="Mac Layer Improvements.html#BA">Block Acknowledgement</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Compatibility.html"  class="thispage">Compatibility with a/b/g</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Compatibility.html#PPDU">Multiple PPDU frame format</a></li>
+                                <li class="sub_li"><a href="Compatibility.html#CTS">CTS-to-self</a></li>
+
+                              </ul></li>
+                          <li><a href="Bibliography.html">Conclusion + Bibliography</a></li>
+                      </ul>
+                  </nav>
+              </header>
+              <div id="hero"><img src="img/hero.jpg" alt="" id="img_hero"/></div>
+              <article>
+                <h2>Compatibility with a/b/g</h2>
+                <p class="MsoNormal" style="text-indent:35.4pt;">802.11n devices will have to operate with  802.11a, b and g devices for a long time. Therefore, it is absolutely necessary  to guaranty the backward compatibility with these previous generations. Here  are two examples of backward compatibilities protection techniques that can be  used:</p>
+                  <p style="margin:0cm;margin-bottom:.0001pt;"></p>
+                  <h3 id="PPDU"><span style="white-space:pre-wrap; ">Multiple PPDU frame format</span><br>
+                  </h3>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">PPDU stands for Physical layer convergence  procedure Protocol Data Unit. A PPDU is a frame containing a PSDU + a Phy  header + a preamble. The Physical layer creates it. Multiple preamble and Phy  header assures the backward compatibity. A preamble can have different formats.  It can be a legacy format (also called non-HT format) or it can be an HT format. A legacy  format (or non-HT format) is the format used by 802.11a, b and g. An HT format  is the format used by 802.11n. Therefore, an HT format cannot be understood by  802.11a, b or g. The same thing applies with Phy header.</p>
+                <p class="MsoNormal" style="text-indent:35.4pt;">If a PPDU only contains HT format elements,  (such a PPDU is called HD-Greenfield) it can only be understood by 802.11n  compatible devices. There is therefore no backward compatibility. The solution  is to use mixed-formats. As shown in the next figure, such a PPDU contains a HT  format Phy header and preamble but also a legacy format Phy header and  preamble. This way a non-802.11n device will be able to read the information.</p>
+                  <figure><img src="img/PPDU.png" width="948" height="78" alt=""/>
+                    <figcaption>Figure 14: Mixed format PPDU</figcaption>
+                  </figure>
+                  <h3 id ="CTS">CTS-to-self</h3>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">CTS stands for Clear-to-Send. It  deals with medium access control which objective is to prevent collision over  the medium. It is normally used with RTS, Request To Send. When a device aims at  sending a packet to another device, it first sends an RTS packet to everyone.  Every receivers of this RTS send back a CTS to the sender to indicate that they  don&rsquo;t intent to use the medium. Finally, the data is sent to the targeted  device. This limit the bandwidth since before every sending, several RTS and  CTS has to circulate. 802.11g introduced the CTS-to-self packet. When a station  wishes to use the medium, it first send a CTS-to-self packet to everyone. All  the devices that receive the CTS-to-self delay their emissions (called backoff)  and the transmitter is able to transmit his data.</p>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">&nbsp;</p>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">Imagine now  two devices, A and B,  connected to an AP. Let's suppose that the AP and A are 802.11n compatible devices  and B is an 802.11a device. A wants to send a data to the AP. It sends a  CTS-to-self to reserve the medium. If this packet does not use a legacy data  rate, B will not decode the CTS-to-self. Therefore, it can decides to use the  medium at the same time and there will be a collision. That is the reason why, every  time a 802.11n device sends a CTS-to-self to reserve the medium for a certain  time, it uses a legacy data rate that can be decode by every non-HT devices, so  that every others stations will perform a backoff.</p>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">&nbsp;</p>
+              </article>
+              <footer id="footer">@Copyright 2014 Rémi Prévost</footer>
+          </div>
+      </body>
+  </html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IEEE802.11n</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="img/icon.png" />
+    <style type="text/css">
+    <!--
+p.MsoNormal {
+	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 8.0pt;
+	margin-left: 0cm;
+	line-height: 107%;
+	font-size: 15pt;
+	font-family: "Calibri",sans-serif;
+}
+-->
+    </style>
+</head>
+
+	<body>
+		<div id="wrapper">
+			<header id="header">
+				<h1>IEEE 802.11n</h1>
+				<nav>
+                      <ul>
+                          <li><a href="index.html">Introduction</a></li>
+                          <li>
+                              <a href="Physical Layer Improvements.html">Physical Layer Improvements</a>
+                              <ul class="sub_ul">
+                                <li class="sub_li"><a href="Physical Layer Improvements.html#MIMO">Multiple-Input, Multiple-Output (MIMO)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Beamforming">Beamforming</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#MRC">Maximal-Ratio Combining (MRC)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#SM">Spatial Multiplexing (SM)</a></li>
+								<li class="sub_li"><a href="Physical Layer Improvements.html#Radio_Enh">Radio Enhancements</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Channel_bond">Channel Bonding</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#HT_OFDM">HT-OFDM</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#GI">Shorter Guard Interval (GI)</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Mac Layer Improvements.html">MAC Layer Improvements</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Mac Layer Improvements.html#frame_agg">Frame Aggregation</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MSDU">A-MSDU</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MPDU">A-MPDU</a></li>
+                                <li class="sub_li"><a href="Mac Layer Improvements.html#BA">Block Acknowledgement</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Compatibility.html">Compatibility with a/b/g</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Compatibility.html#PPDU">Multiple PPDU frame format</a></li>
+                                <li class="sub_li"><a href="Compatibility.html#CTS">CTS-to-self</a></li>
+
+                        </ul></li>
+                          <li><a href="Bibliography.html"  class="thispage">Conclusion + Bibliography</a></li>
+                      </ul>
+                  </nav>
+			</header>
+			<div id="hero"><img src="img/hero.jpg" alt="" id="img_hero"/></div>
+			<article>
+            <h2>Conclusion</h2>
+            <p class="MsoNormal" style="text-indent:36.0pt;">To summarize the benefits of 802.11n  technology, it is simplest to say that there are two major areas of  improvement over previous 802.11 devices. The first area of improvement  is in the use of MIMO technology to achieve greater SNR on the radio  link. The second area of improvement is in the greater efficiencies in  both radio transmissions and the MAC protocol. These improvements  translate into benefits in three areas: reliability, predictable  coverage, and throughput.</p>
+            <p style="margin:0cm;margin-bottom:.0001pt;"><span style="font-family:'Calibri',sans-serif; font-size:11.0pt; ">&nbsp;</span></p>
+            <ul>
+              <li><u><span style="font-family:'Calibri',sans-serif; font-size:15.0pt; ">Reliability</span></u><span style="font-family:'Calibri',sans-serif; font-size:15.0pt; ">: Greater SNR on the radio link translates directly to more reliable  communication, often at higher data rates. Higher SNR means that more  interference is needed to corrupt a transmission. This means greater  client densities can be supported. Predictable </span></li>
+              <li><u><span style="font-family:'Calibri',sans-serif; font-size:15.0pt; ">Coverage</span></u><span style="font-family:'Calibri',sans-serif; font-size:15.0pt; ">: The use of multiple spatial streams provided by MIMO technology  means that there will be fewer dead spots in a coverage area. Areas that  previously suffered from destructive multipath interference now make use  of that same multipath effect to provide robust communication.</span></li>
+              <li><u><span style="font-family:'Calibri',sans-serif; font-size:15.0pt; ">Throughput</span></u><span style="font-family:'Calibri',sans-serif; font-size:15.0pt; ">: The efficiency improvement in 802.11n provides a greater  transfer of the high bit rates of the 802.11n radio to effective throughput  seen by actual applications, at least in greenfield deployments. Even in  mixed-mode deployments with legacy 802.11 devices, 802.11n will provide  greater effective throughput, although significantly less than the  greenfield mode.</span></li>
+            </ul>
+<h2>Questions</h2>
+<p class="MsoNormal">1. Why isn't interessant to use BA with A-MSDU?</p>
+<p class="MsoNormal" style="text-indent:36.0pt;">BA is used to ack a group of frames in when single send. If an A-MSDU is received with an error bit on one of the aggregated frame, the receiver cannot tell on which one it happened so it will ask for the resend of the all A-MSDU. This way, a simple Ack can do the job.</p>
+<p class="MsoNormal">2. On what physics principle relies Beamforming?</p>
+<p class="MsoNormal" style="text-indent:36.0pt;">Beamforming relies on wave interference to raise the signal strength at the level of the receiver.</p>
+<p class="MsoNormal">3. What is the main difference between A-MPDU and A-MSDU?</p>
+<p class="MsoNormal" style="text-indent:36.0pt;">The main difference is the MAC encapsulation. An A-MPDU is the aggregation of encapsulated MSDUs while A-MSDU is the aggregation of MSDUs. The MAC encapsulations is done on the whole A-MSDU to form an PSDU.</p>
+<p class="MsoNormal">4. What MRC does?</p>
+<p class="MsoNormal" style="text-indent:36.0pt;">MRC (Maximal-Ration Combining) is an algorithm that mixes-up two or more signals (at most four) coming from the different antennas on the receiver. MRC produces a signal, extracting the best of the received signals for each frequencies.</p>
+<p class="MsoNormal">5. Can Beamforming be used with an 802.11a receiver device? Why?</p>
+<p class="MsoNormal" style="text-indent:36.0pt;">The transmitter tunes-up the phase of the sent waves, to optimize the signal strength at the level of the receiver. In order to do that, it needs to know the signal strength received by the targeted device. The problem is that only an 802.11n compatible device is able to transmit such an information to the transmitter. Therefore, an 802.11a can not take advantage of beamforming as defined by the 802.11n certification.</p>
+<h2>Bibliography</h2>
+				<ul>
+                 <li>«&nbsp;802.11n Technology&nbsp;» from Cisco, last access: 02/11/2014, <a href="https://meraki.cisco.com/lib/pdf/meraki_whitepaper_802_11n.pdf">https://meraki.cisco.com/lib/pdf/meraki_whitepaper_802_11n.pdf</a><br>
+			      </li>
+                   <li>«&nbsp;The IEEE 802.11g Standard for
+High Data Rate WLANs&nbsp;» from University of the Aegean, last access: 02/11/2014, <a href="http://pamvotis.org/vassis/VKRM_Final.pdf">http://pamvotis.org/vassis/VKRM_Final.pdf</a><br>
+			      </li>
+                   <li>«&nbsp;Impact of Legacy Devices on 
+802.11n Networks &nbsp;» from AirMagnet, last access: 02/11/2014, <a href="http://www.nle.com/literature/Airmagnet_impact_of_legacy_devices_on_80211n.pdf">http://www.nle.com/literature/Airmagnet_impact_of_legacy_devices_on_80211n.pdf</a><br>
+			      </li>
+                   <li>«&nbsp;802.11 PHY Layer frame format&nbsp;» from Wikipedia, last access: 02/11/2014, <a href="http://dot11.info/index.php?title=Chapter_2_-_802.11_PHY_Layer_frame_format#PLCP_Preamble">http://dot11.info/index.php?title=Chapter_2_-_802.11_PHY_Layer_frame_format#PLCP_Preamble</a><br>
+			      </li>
+                  <li>«&nbsp;Coexistence of 802.11n and 802.11a/b/g&nbsp;» from AeroHive, last access: 02/11/2014, <a href="https://www.youtube.com/watch?v=Za63lwkdCXE">https://www.youtube.com/watch?v=Za63lwkdCXE</a><br>
+			      </li>
+				  <li>«&nbsp;IEEE  for standard technology&nbsp;» from IEEE Computer Society, last accessed: 22/10/2014, <a href="http://standards.ieee.org/getieee802/download/802.11n-2009.pdf">http://standards.ieee.org/getieee802/download/802.11n-2009.pdf</a><br>
+			      </li>
+				  <li>«  Inside IEEE 802.11&nbsp;» from Leutert NetServices, last accessed: 13/10/2014, <a href="http://www.wireshark.ch/download/Cisco_PSE_Day_2009.pdf">http://www.wireshark.ch/download/Cisco_PSE_Day_2009.pdf</a><br>
+			      </li>
+				  <li>«&nbsp;Frame  Aggregation&nbsp;» from Wikipedia, last accessed: 22/10/2014, <a href="http://en.wikipedia.org/wiki/Frame_aggregation">http://en.wikipedia.org/wiki/Frame_aggregation</a><br>
+			      </li>
+				  <li>«&nbsp;MIMO&nbsp;»  from Wikipedia, last accessed: 22/10/2014, <a href="http://en.wikipedia.org/wiki/MIMO">http://en.wikipedia.org/wiki/MIMO</a><br>
+			      </li>
+				  <li>«  IEEE802.11n Standard » from Radio-Electronics, last accessed: 22/10/2014, <a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11n.php">http://www.radio</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11n.php">electronics.com/info/wireless/wi</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11n.php">-</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11n.php">fi/ieee</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11n.php">-</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11n.php">802</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11n.php">11n.php</a><br>
+			      </li>
+				  <li>«&nbsp;General  informations&nbsp;» from&nbsp;Radio Electronics, last accessed: 22/10/2014, <a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11a.php">http://www.radio</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11a.php">electronics.com/info/wireless/wi</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11a.php">-</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11a.php">fi/ieee</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11a.php">-</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11a.php">802</a><a href="http://www.radio-electronics.com/info/wireless/wi-fi/ieee-802-11a.php">11a.php</a><br>
+			      </li>
+				  <li>«&nbsp;IEEE 802.11n&nbsp;»  from Wikipedia, last accessed: 20/10/2014, <a href="http://en.wikipedia.org/wiki/IEEE_802.11n-2009">http://en.wikipedia.org/wiki/IEEE_802.11n</a><a href="http://en.wikipedia.org/wiki/IEEE_802.11n-2009">-</a><a href="http://en.wikipedia.org/wiki/IEEE_802.11n-2009">2009</a><br>
+			      </li>
+				  <li>«&nbsp;Les réseaux sans-fil : IEEE802.11&nbsp;» from Université de  Reims, last accessed: 22/10/2014, <a href="http://www.nolot.eu/Download/Cours/reseaux/m1info/ProtoAv-Cours7-Wifi.pdf">http://www.nolot.eu/Download/Cours/reseaux/ </a><a href="http://www.nolot.eu/Download/Cours/reseaux/m1info/ProtoAv-Cours7-Wifi.pdf">m1info/ProtoAv</a><a href="http://www.nolot.eu/Download/Cours/reseaux/m1info/ProtoAv-Cours7-Wifi.pdf">-</a><a href="http://www.nolot.eu/Download/Cours/reseaux/m1info/ProtoAv-Cours7-Wifi.pdf">Cours7</a><a href="http://www.nolot.eu/Download/Cours/reseaux/m1info/ProtoAv-Cours7-Wifi.pdf">-</a><a href="http://www.nolot.eu/Download/Cours/reseaux/m1info/ProtoAv-Cours7-Wifi.pdf">Wifi.pdf</a><br>
+			      </li>
+				  <li>«&nbsp;Réseaux sans fil IEEE802.11&nbsp;» from IRISA, last accessed: 10/10/2014, <a href="http://www.irisa.fr/prive/bcousin/Enseignement/2011-2012/R%C3%A9seaux%20sans%20fil.IEEE%20802.11.2P.pdf">http://www.irisa.fr/prive/bcousin/Enseignement</a>/2011<a href="http://www.irisa.fr/prive/bcousin/Enseignement/2011-2012/R%C3%A9seaux%20sans%20fil.IEEE%20802.11.2P.pdf">2012/R%C3%A9seaux%20sans%20fil.IEEE%20802 </a><a href="http://www.irisa.fr/prive/bcousin/Enseignement/2011-2012/R%C3%A9seaux%20sans%20fil.IEEE%20802.11.2P.pdf">.11.2P.pdf</a><br>
+			      </li>
+				  <li>«&nbsp;helping define  IEEE802.11&nbsp;» from Intel, last accessed: 01/10/2014, <a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">http://www.intel.com/content/dam/www/public </a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">/us/en/documents/case</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">-</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">studies/802</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">-</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">11</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">-</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">wireless</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">lan</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">-</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">standards</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">-</a><a href="http://www.intel.com/content/dam/www/public/us/en/documents/case-studies/802-11-wireless-lan-standards-study.pdf">study.pdf</a></li>
+			  </ul>
+			</article>
+			<footer id="footer">@Copyright 2014 Rémi Prévost</footer>
+		</div>
+	</body>
+</html>

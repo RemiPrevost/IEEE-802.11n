@@ -1,0 +1,137 @@
+  <!doctype html>
+  <html>
+      <head>
+          <meta charset="utf-8">
+          <title>IEEE802.11n</title>
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="img/icon.png" />
+      <style type="text/css">
+      <!--
+  p.MsoNormal {
+      margin-top: 0cm;
+      margin-right: 0cm;
+      margin-bottom: 8.0pt;
+      margin-left: 0cm;
+      line-height: 107%;
+      font-size: 16pt;
+      font-family: "Calibri","sans-serif";
+  }
+  -->
+      </style>
+  </head>
+  
+      <body>
+          <div id="wrapper">
+              <header id="header">
+                  <h1>IEEE 802.11n</h1>
+                  <nav>
+                      <ul>
+                          <li><a href="index.html">Introduction</a></li>
+                          <li>
+                              <a href="Physical Layer Improvements.html" class="thispage">Physical Layer Improvements</a>
+                              <ul class="sub_ul">
+                                <li class="sub_li"><a href="Physical Layer Improvements.html#MIMO">Multiple-Input, Multiple-Output (MIMO)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Beamforming">Beamforming</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#MRC">Maximal-Ratio Combining (MRC)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#SM">Spatial Multiplexing (SM)</a></li>
+								<li class="sub_li"><a href="Physical Layer Improvements.html#Radio_Enh">Radio Enhancements</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Channel_bond">Channel Bonding</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#HT_OFDM">HT-OFDM</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#GI">Shorter Guard Interval (GI)</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Mac Layer Improvements.html">MAC Layer Improvements</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Mac Layer Improvements.html#frame_agg">Frame Aggregation</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MSDU">A-MSDU</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MPDU">A-MPDU</a></li>
+                                <li class="sub_li"><a href="Mac Layer Improvements.html#BA">Block Acknowledgement</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Compatibility.html">Compatibility with a/b/g</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Compatibility.html#PPDU">Multiple PPDU frame format</a></li>
+                                <li class="sub_li"><a href="Compatibility.html#CTS">CTS-to-self</a></li>
+
+                              </ul></li>
+                          <li><a href="Bibliography.html">Conclusion + Bibliography</a></li>
+                      </ul>
+                  </nav>
+              </header>
+              <div id="hero"><img src="img/hero.jpg" alt="" id="img_hero"/></div>
+              <article>
+                <h2>Physical Layer Improvements</h2>
+                  <h3 id="MIMO">Multiple-Input,  Multiple-Output (MIMO)</h3>
+                  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;"><span style="color:black; ">MIMO, which stands  for Multiple-Input Multiple-Output, is the heart of 802.11n. The previous  versions of IEEE used only one antenna. One for the reception device and another  one ofor the emission device. This configuration is called SISO for Single-Input  Single-Out. The compatibles devices with 802.11n are equipped with several  antennas. At most four antennas. </span></p>
+                  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;"><span style="color:black; ">&nbsp;</span></p>
+                  <figure><img src="img/MIMO1.png" width="420" height="442" alt=""/>
+                  <figcaption>Figure 1: SISO, SIMO, MISO and MIMO illustration</figcaption></figure>
+                  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;"><span style="color:black; ">&nbsp;</span></p>
+                  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;"><span style="color:black; ">Different  technologies take advantage of MIMO. Among all of these, we will talk about  Spatial Multiplexing (SP), Beamforming and Multiple-Ratio Combining (MRC).</span></p>
+                  <h4 id="Beamforming">Beamforming</h4>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">The goal of beamforming is to improve the SNR  (signal-to-noise ratio) on the receiver. This way we increase date rates and  decrease retransmissions. It uses the principle of interference of waves. The  two following figures show an example of interference. The left one shows what  we call destructive interference. This happens when two waves (the green and  blue ones), with a delay close to π, interfere. The red wave is the sum of the  two previous sinus. The second figure shows the opposite effect, called  constructive interference. In this case, the two interfering waves (the blue  and the green ones) have almost the same phase.</p>
+                <div class="side_by_side">
+                  <figure>
+                      <img src="img/Physical Layer Improvements_clip_image006.png" width="395" height="296" alt=""/>
+                      <img src="img/Physical Layer Improvements_clip_image004.png" width="395" height="296" alt=""/>
+                    <figcaption>Figure 2: Exemple of a destructive interference (the red signal is the result of the interference)</figcaption>
+                      <figcaption>Figure 3: Exemple of a constructive interference (the red signal is the result of the interference)</figcaption>
+                  </figure>
+                  </div>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">The green and the blue waves can be the signals  sent by a AP (Access Point), equipped with to antennas, each antenna sending  one of the two signals. We suppose that the signal is sent to a device equipped  with only one antenna. The device receives the red signal, sum of the two issued  signals. This way, the received signal can be as good as expected, absolutly  null or twice better than expected.</p>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">So how does beamforming uses this phenomenon?  It is performed by changing the phase of one of the two signals, so that the device  is located in a region where the two wave interfere constructively. This way  the signal strength can be twice better than the strength signal of the sent waves. </p>
+                  <figure>
+                    <img src="img/beamforming.png" alt=""/>
+                    <figcaption>Figure 4: Phase tune of the transmitted signals to get a constructive interference at the level of the receiving device
+                    </figcaption>
+                  </figure>
+                  <p class="MsoNormal">This  technology has several constraints: </p>
+                  <ul>
+                    <li><p class="MsoNormal">To  know how to set the phases of the signals, the AP needs to know the strength of  the received signal on the device. It supposes that the device sends this  information to the AP. Sadly, only a 802.11n is able to do so. This way, beamforming  is not compatible with previous versions such as 802.11a, b or g. </p></li>
+                    <li><p class="MsoNormal">This  technology is much more efficient when there are few obstructions or  radio-reflective surfaces.</p></li>
+                    <li><p class="MsoNormal">It  is not possible to optimize the phase of the transmitted signals when sending  broadcast or multicast transmissions.</p></li>
+                  </ul>
+                  <h4 id="MRC">Maximal-Ratio Combining  (MRC)</h4>
+                  <p class="MsoNormal">The MRC is  an algorithm used at the level of the receiver. It takes advantage of the  multiple antennas at the receiver. The signals received on the different  antennas followed different paths. Therefore, the amplitude of the received  frequencies varies. This algorithm analyses the different signals obtained and  generate a new one, inspired by the best of every signals. On the following  figure is shown the MRC signal generated, based on three other signals received  by three different antennas. </p>
+                  <figure><img src="img/MRC.png" width="621" height="424" alt=""/>
+                  <figcaption>Figure 5: Signal generated with the MRC, based on 3 input signals
+                  </figcaption>
+                  </figure>
+                  <p class="MsoNormal">Note that a 802.11n device can operate a MRC signal even if the transmitter  is a 802.11a, b or g, thanks to spatial diversity (see below).</p>
+                  <h4 id = "SM">Spatial Multiplexing (SM)</h4>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">SM transmission technique relies on the  phenomenon of multipath. This phenomenon happens in a non-ideal transmission  case when the environment contains obstacles, wave reflectors. In this  situation, the receiver might get a direct wave from the transmitter, but it will also get copies of the direct signal, results of one or  more reflection on the environment. The following figure resumes this situation.</p>
+                  <figure><img src="img/Multipath Interference.png" width="646" height="329" alt=""/>
+                  <figcaption> Figure 6: Illustration of the multipath issue
+                  </figcaption>             
+                  </figure>
+                  <p class="MsoNormal" style="text-indent:35.4pt;">While this is often source of information loss  in transmission technologies, 802.11n takes advantage of it thanks to the SM. It  allows MIMO capable devices to send different signals at the very same time,  using several equipped antennas. These different signals are called spatial  streams. Each of the sent signals followed a slightly different path due to the  short distance between the antennas. This is called special diversity. Each  antennas of the receiver get a different signal. These signals are  independently decoded and then combined to reassemble the date stream. The  following figure summarize these explanations. A data h can be separated in h1  and h2. The data h1 is transmitted by the antenna Tx1 while at the same time, h2 is  transmitted by the antenna Tx2. At the level of the receiver, both antenna Rx1  and Rx2 receive a combination a h1 and h2 but under a different signal.</p>
+                  <figure><img src="img/SM.png" width="536" height="458" alt=""/>
+                  <figcaption>Figure 7: Illustration of Spatial Multipath</figcaption>
+                  </figure>
+                  <p class="MsoNormal">This technology  increases the SNR but also significantly data rates.</p>
+  <p></p>
+  <h3 id="Radio_Enh">Radio Enhancements</h3>
+  <h4 id = "Channel_bond">Channel Bonding</h4>
+  <p class="MsoNormal" style="text-indent:35.4pt;">Channel bonding is used  in 802.11n to bind two 20 MHz channels, to make one 40 MHz channel. Doubling the  frequency space doubles the bandwidth, and doubling the bandwidth doubles the  throughput. We can make an analogy with a highway. Moving from a two lines  highway to a four lines highway doubles the traffic capacity. Same result  applies in network. While 802.11a and g used 20 MHz channels, 802.11n uses  40MHz channels, thanks to Channel Bonding (see the following figure).</p>
+  <figure><img src="img/Physical Layer Improvements_clip_image002.jpg" width="494" height="276" alt=""/>
+    <figcaption>Figure 8: Channel Bonding</figcaption></figure>
+  <p class="MsoNormal" style="text-indent:35.4pt;">In fact, channel  bounding more than doubles the throughput. One 20 MHz channel is  composed of two 1 MHz channels, one at the beginning of the channel and one at the  end, called Guard Bands. The 18 MHz left are used for data transfers. When using  Channel Bonding, the two Guard Bands between  two 20 MHz channels can now be  used carry information. 
+  <figure><img src="img/20MHz-40MHz_2.png" width="697" height="257" alt=""/>
+    <figcaption>Figure 9: Gained frequencies from previous Gard Bands when using Channel Bonding</figcaption></figure>
+    
+    <h4 id="HT_OFDM">HT-OFDM</h4>
+    <p class="MsoNormal" style="text-indent:35.4pt;">802.11a and g used Orthogonal Frequency  Division Multiplexing (OFDM) to transmit information. 802.11n continues to use OFDM but in a slightly different way. This new version is called HT-OFDM for  High Throughput OFDM.</p>
+    <p class="MsoNormal" style="text-indent:35.4pt;">How does OFDM works? The OFDM divides a channel  into several subcarriers to carry information. For example, 802.11a and g use an  OFDM that divides the 20MHz channels into 52 subcarriers. 48 of those are used  for data transmission and 4 others are used for forward error correction. This  configuration offers a data rates of 54 Mbps at best.</p>
+    <p class="MsoNormal">               When 802.11n uses 20MHz channels,  HT-OFDM now offers 56 subcarriers. There are still 4 that are used for forward  error correction and now 52 that are used for data transmission. This  marginally increases the data rates to a maximum of 65 Mbps. This is when we  use a single-transmitter radio. For two transmitters, the maximum data rates is  130 Mbps. Three transmitters provide a maximum data rates of 195 Mbps. The  maximum four transmitters can deliver 260 Mbps. </p>
+    <p class="MsoNormal" style="text-indent:35.4pt;">When a 40MHz channel is used, we get 108  subcarriers to transmit data information and 6 subcarriers for forward error  correction. This way the channel is divided into 114 subcarriers. This provides  a maximum data rates of 135 Mbps, 270 Mbps, 405 Mbps, and 540 Mbps for one  through four transmitters, respectively.</p>
+    <figure><img src="img/HT-OFDM.png" width="539" height="330" alt=""/>
+      <figcaption>Figure 10: Number of subcarriers offered by OFDM</figcaption></figure>
+    <h4 id="GI">Shorter Guard Interval  (GI)</h4>
+    <p class="MsoNormal" style="text-indent:35.4pt;">In 802.11a, g and n, a symbol is transmitted  every 4 microseconds. The improvement is realized on the Guard Interval (GI)  duration. While 802.11a and g used an 800 nanoseconds GI, offering 3.2  microseconds for every symbol duration, 802.11n reduces this GI to 400  nanoseconds, allowing the symbol to persist during 3.6 microseconds. This  slightly increases the maximum data rates. If we take the example of a  transmission using 40MHz channels, the use of short GI improves the data rates  of 150 Mbps per transmitter antenna.</p>
+    <figure><img src="img/GI.png" width="760" height="540" alt=""/>
+      <figcaption>Figure 11: Shorter Guard Interval</figcaption></figure>
+              </article>
+              <footer id="footer">@Copyright 2014 Rémi Prévost</footer>
+          </div>
+      </body>
+  </html>

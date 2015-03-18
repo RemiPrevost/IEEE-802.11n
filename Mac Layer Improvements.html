@@ -1,0 +1,101 @@
+  <!doctype html>
+  <html>
+      <head>
+          <meta charset="utf-8">
+          <title>IEEE802.11n</title>
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="img/icon.png" />
+      <style type="text/css">
+      <!--
+  p.MsoNormal {
+      margin-top: 0cm;
+      margin-right: 0cm;
+      margin-bottom: 8.0pt;
+      margin-left: 0cm;
+      line-height: 107%;
+      font-size: 16pt;
+      font-family: "Calibri","sans-serif";
+  }
+  -->
+      </style>
+  </head>
+  
+      <body>
+          <div id="wrapper">
+              <header id="header">
+                  <h1>IEEE 802.11n</h1>
+                  <nav>
+                      <ul>
+                          <li><a href="index.html">Introduction</a></li>
+                          <li>
+                              <a href="Physical Layer Improvements.html">Physical Layer Improvements</a>
+                              <ul class="sub_ul">
+                                <li class="sub_li"><a href="Physical Layer Improvements.html#MIMO">Multiple-Input, Multiple-Output (MIMO)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Beamforming">Beamforming</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#MRC">Maximal-Ratio Combining (MRC)</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#SM">Spatial Multiplexing (SM)</a></li>
+								<li class="sub_li"><a href="Physical Layer Improvements.html#Radio_Enh">Radio Enhancements</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#Channel_bond">Channel Bonding</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#HT_OFDM">HT-OFDM</a></li>
+                                <li class="sub_sub_li"><a href="Physical Layer Improvements.html#GI">Shorter Guard Interval (GI)</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Mac Layer Improvements.html" class="thispage">MAC Layer Improvements</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Mac Layer Improvements.html#frame_agg">Frame Aggregation</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MSDU">A-MSDU</a></li>
+                                <li class="sub_sub_li"><a href="Mac Layer Improvements.html#A-MPDU">A-MPDU</a></li>
+                            <li class="sub_li"><a href="Mac Layer Improvements.html#BA">Block Acknowledgement</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="Compatibility.html">Compatibility with a/b/g</a>
+                          <ul class="sub_ul">
+                                <li class="sub_li"><a href="Compatibility.html#PPDU">Multiple PPDU frame format</a></li>
+                                <li class="sub_li"><a href="Compatibility.html#CTS">CTS-to-self</a></li>
+
+                              </ul></li>
+                          <li><a href="Bibliography.html">Conclusion + Bibliography</a></li>
+                      </ul>
+                  </nav>
+              </header>
+              <div id="hero"><img src="img/hero.jpg" alt="" id="img_hero"/></div>
+              <article>
+                <h2>MAC Layer Improvements</h2>
+                <p class="MsoNormal" style="text-indent:35.4pt;">As it is shown in the <a href="Physical Layer Improvements.html">Physical Layer Improvements</a> part,  the technical changes given with 802.11n brings throughput capacities much  higher than the previous generations.  However,  these improvements will only be useful if improvements are also realized  on the  MAC layer. Indeed, with the previous generations, all the overheads, such as Block  Acknowledgement (BA) or frame check sequence<span style="orphans:auto; text-align:start; widows:auto; -webkit-text-stroke-width:0px; float:none; word-spacing:0px; ">&nbsp;(</span>FCS)&nbsp;are  responsible for more than 65% of the transmitted information by Wi-Fi. In order  to improve performance and enjoy the one offered by the physical layer  improvements 802.11n brings different solutions. One of theses solutions is frame aggregation:</p>
+                <h3 id="frame_agg">Frame Aggregation</h3>
+                <p class="MsoNormal" style="text-indent:35.4pt;">Frame aggregation is used at the level of the  MAC protocol, to aggregate several Protocol Data Units (PDUs) coming from the  upper layer. As we will see, there is two ways to realize a frame aggregation:  A-MSDU and A-MPDU. Before detailing their respective principle, we will see the  limitations of frame aggregation.</p>
+                <ul>
+                  <li><p class="MsoNormal">First,  the aggregated frames must target the same MAC destination address and have the  same MAC source address, i.e. the aggregated frames must target the same mobile  client from the same access point, or vice versa. Therefore, no broadcast or  multicast is possible with frame aggregation.</p></li>
+                  <li>
+                  <p class="MsoNormal">Secondly,  to aggregate frames means delaying the first received frames, waiting for others  frames to complete the aggregation.</p></li>
+                  <li><p class="MsoNormal">Thirdly, the aggregated MSDU must have the same QoS (Quality of Service).</p></li>
+                  <li>
+                  <p class="MsoNormal">Finally,  the maximum frame size of the aggregated frame depends on the channel coherence  time. The channel coherence time is the time duration over which the channel  impulse response is considered to be not varying. In wireless technologies  such as Wi-Fi, the responsible of such variations is the Doppler Effect. This  effect can be observed when a car honks close to us and then goes away, keeping  honking. We hear the sound getting more bass every time the car goes away. This  means that the wave frequency is getting lower because of the car movements and  our immobility. Such an alteration of wave frequency is also true in wireless  communications. So the maximum size of the aggregated frames is proportional  with the channel coherence time i.e. the time for the transmission must be less  than the channel coherence time.</p></li>
+                </ul>
+                <p class="MsoNormal">&nbsp;</p>
+                <h4 id="A-MPDU">A-MPDU:</h4>
+                <figure><img src="img/A-MPDU.png" width="839" height="553" alt=""/>
+                <figcaption>Figure 12: Details of the PPDU format when using A-MPDU</figcaption></figure>
+                <p class="MsoNormal">&nbsp;</p>
+                <p class="MsoNormal" style="text-indent:36.0pt;">A-MPDU stands for Aggregated - MAC Protocol  Data Unit. The particularity of this version of frame aggregation comes from  the fact that the aggregation is realized after the creation of the MPDU i.e.  after the encapsulation of the MSDU received from the LLC (Logical Link  Control) layer into a MAC PDU. To this MPDU, we add a delimiter called  MPDU delimiter. It is composed of a reserved field on 4 bits, of the size of the  MPDU on 12 bits, of a CRC (Cyclic Redundant Check) to check the integrity of  the 16 previous bits and of a delimiter signature, which helps the  de-aggregation when the frame is received. After the MPDU, we add padding  between 0 and 3 bits so the MPDU is a multiple of four bytes in length, which  can assist subframe delineation at the receiver side. All of these bits  represent a subframe. The length of such a subframe is limited to 4095 bytes.</p>
+                <p class="MsoNormal" style="text-indent:36.0pt;">Finally, utmost 64 subframes can be aggregated  to form an A-MPDU i.e. a PSDU i.e. a PPDU when a Physical header is added.</p>
+                <p class="MsoNormal">&nbsp;</p>
+                <h4 id="A-MSDU">A-MSDU:</h4>
+                <figure><img src="img/A-MSDU.png" width="784" height="504" alt=""/>
+                <figcaption>Figure 13: Details of the PPDU format when using A-MSDU</figcaption></figure>
+                <p class="MsoNormal">&nbsp;</p>
+                <p class="MsoNormal" style="text-indent:36.0pt;">A-MSDU stands for Aggregated - Mac Service Data  Unit. The difference with A-MPDU is that the aggregation is here realized  before the MAC encapsulation. The result is that, as you can see on the above  figure, there is only one MAC header for the all PSDU while a PSDU constructed with an A-MPDU has several MPDU, and therefore several MAC headers. This definitively  reduce the number of bits transmitted for MAC headers and Phy headers, particularly  when it is about frames for TCP acknowledgements, which are small MSDUs.</p>
+                <p class="MsoNormal">               At the top of the MAC layer, a  buffer is in charge of receiving and holding MSDUs coming from the above layer,  the LLC layer. The frames are stored until the maximum number of MSDUs to be  aggregated is reached or after a certain delay. To every received MSDU is  joined a Destination Address (DA), a Source Address (SA) and the length of the  linked MSDU. Just like A-MPDU, in order to have subframes having a four  multiple length, every MSDU has a 4 bits of padding. This set constitutes a  Subframe. Its maximum size is either 3839 bytes or 7935 bytes depending on the  Phy PSDU size limitation. With the MAC header and the A-MSDU, we add a frame  check sequence. </p>
+                <p class="MsoNormal" style="text-indent:35.4pt;">Note: in comparison, A-MPDU is, in most cases, more  efficient than A-MSDU due to the technology we are about to talk about: block acknowledgement. </p>
+                <h3 id="BA">Block Acknowledgement<br>
+                </h3>
+                <p class="MsoNormal" style="text-indent:35.4pt;">Another major flaw with  the previous generations of 802.11 was that, when we needed retransmission in  case of loss, every sent packets had had to be acknowledged, using an Ack frame.  This behavior limits the bandwidth.</p>
+                <p class="MsoNormal" style="text-indent:35.4pt;">802.11n introduces  block Acknowledgement (BA) which allows acknowledgement of multiple received packets  with when single BA frame. This new technology is not applied with A-MSDUs because  one normal Ack frame acknowledges the all A-MSDU. However, with A-MPDUs, every  subframes must be individually acknowledged. This is the flaw of A-MSDU.  Because  an error bit can occur on one single subframe, leaving the others subframes  clean. But because the error detection is done thanks to the FCS, general to whole  aggregated packet, the all packet must re-emitted which reduces dramatically the  bandwidth. This problem does not exist with the use of A-MPDU and BA.</p>
+                <p class="MsoNormal" style="text-indent:35.4pt;">A BA is constituted  with a bitmap to selectively indicate which of the transmitted frames have been  lost. These indications allow the transmitter to re-emit only the lost frames.  A BA can acknowledge 64 frames at most.</p>
+                <p class="MsoNormal" style="text-indent:35.4pt;">What mechanism allows  the communicating devices to know whether they should use BA or single Ack?  When a session between two devices is opened, the device that wishes to use  A-MPDUs for its transmissions and therefore receive BA sends an ADDBA request.  If the other device agrees, it responds with an ADDBA response, accepting the  request. An ADDBA request must be sent by every devices that wishes to transmit frames  using A-MPUDs.</p>
+                <p class="MsoNormal">&nbsp;</p>
+              </article>
+              <footer id="footer">@Copyright 2014 Rémi Prévost</footer>
+          </div>
+      </body>
+  </html>
